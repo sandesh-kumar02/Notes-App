@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <h2 class="logo">NotesApp</h2>
+      <nav>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/notes">Create Note</a>
+        <a href="/logout">Logout</a>
+      </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+      <h1>Welcome, <%= user.username %> 👋</h1>
+      <p>Here are your saved notes. You can edit or delete them anytime.</p>
+    </section>
+
+    <!-- Notes List -->
+    <section class="notes-container">
+      <% if (notes.length > 0) { %>
+      <ul>
+        <% notes.forEach(note => { %>
+        <li class="note-card">
+          <h3><%= note.title %></h3>
+          <p><%= note.content %></p>
+
+          <div class="note-actions">
+            <a href="/notes/<%= note._id %>/edit" class="btn-edit">✏️ Edit</a>
+
+            <form
+              action="/notes/<%= note._id %>/delete?_method=DELETE"
+              method="post"
+              style="display: inline"
+            >
+              <button class="btn-delete">🗑️ Delete</button>
+            </form>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+      <% } else { %>
+      <p class="empty">No notes yet. <a href="/notes">Create one now!</a></p>
+      <% } %>
+    </section>
+  </body>
+</html>

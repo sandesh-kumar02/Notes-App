@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/user-login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome Back 👋</h1>
+      <p>Please login to continue to your Notes App</p>
+
+      <form action="/login-user" method="post" class="login-form">
+        <input
+          type="text"
+          placeholder="Enter username"
+          name="username"
+          required
+        />
+        <% if (errors && errors.username) { %>
+        <span class="error"><%= errors.username.msg %></span>
+        <% } %>
+        <input
+          type="password"
+          placeholder="Enter password"
+          name="password"
+          required
+        />
+        <% if (errors && errors.password) { %>
+        <span class="error"><%= errors.password.msg %></span>
+        <% } %>
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+      <div class="extra">
+        <p>Don’t have an account? <a href="/login">Sign up</a></p>
+        <p>Or login with:</p>
+        <a href="/auth/google" class="google-btn">Continue with Google</a>
+      </div>
+    </div>
+  </body>
+</html>

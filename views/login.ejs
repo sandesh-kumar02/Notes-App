@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | NotesApp</title>
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-card">
+        <h1>Welcome to NotesApp ✨</h1>
+        <p class="subtitle">
+          Sign in to save your notes securely and access them anywhere.
+        </p>
+        <form action="/signup" method="post">
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            autofocus
+            required
+          />
+          <% if (errors && errors.username) { %>
+          <span style="color: red"><%= errors.username.msg %></span>
+          <% } %>
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            required
+          />
+          <% if (errors && errors.password) { %>
+          <span style="color: red"><%= errors.password.msg %></span>
+          <% } %>
+          <input
+            type="email"
+            placeholder="email"
+            autofocus
+            name="email"
+            required
+          />
+          <% if (errors && errors.email) { %>
+          <span style="color: red"><%= errors.email.msg %></span>
+          <% } %>
+          <button type="submit">Signup</button>
+        </form>
+
+        <a href="/auth/google" class="google-btn">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+            alt="Google"
+          />
+          Continue with Google
+        </a>
+        <a href="/auth/github" class="github-btn">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="GitHub"
+          />
+          Continue with GitHub
+        </a>
+
+        <p class="footer-text">
+          By continuing, you agree to our
+          <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
