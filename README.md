@@ -43,7 +43,7 @@ src/
 
 1. Clone the repository  
    ```bash
-   git clone https://github.com/<your-username>/NotesApp.git
+   git clone https://github.com/sandesh-kumar02/Notes-App
    cd NotesApp
 Install dependencies
 npm install
